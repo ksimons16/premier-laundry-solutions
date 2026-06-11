@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Laundry Solutions — Pickup & Delivery</title>
+  <meta name="description" content="On-demand laundry pickup, wash & fold, dry cleaning, and delivery across the Inland Empire, San Gabriel Valley, and Orange County. 24-hour turnaround. Free pickup & delivery.">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #042C53;
+      --blue: #185FA5;
+      --light-blue: #B5D4F4;
+      --pale-blue: #E6F1FB;
+      --white: #ffffff;
+      --black: #0a0a0a;
+      --gray: #f4f8fd;
+      --text: #0a0a0a;
+      --muted: #4a6280;
+      --radius: 10px;
+      --radius-lg: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* PROMO BAR */
+    .promo-bar {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+    .promo-bar strong { color: var(--light-blue); }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid rgba(24,95,165,0.12);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo img { height: 52px; width: auto; display: block; }
+
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      font-family: 'Barlow', sans-serif;
+    }
+    .btn-primary { background: var(--blue); color: var(--white); }
+    .btn-primary:hover { background: var(--navy); }
+    .btn-outline { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+    .btn-outline:hover { background: var(--pale-blue); }
+    .btn-white { background: var(--white); color: var(--navy); }
+    .btn-white:hover { background: var(--pale-blue); }
+    .btn-lg { padding: 14px 32px; font-size: 16px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 80px 40px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+
+    .hero-logo { height: 110px; width: auto; margin-bottom: 28px; filter: brightness(0) invert(1); }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(181,212,244,0.2);
+      color: var(--light-blue);
+      border: 1px solid rgba(181,212,244,0.3);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--light-blue);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 52px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 36px;
+    }
+
+    .hero-stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .hero-stat-label { font-size: 12px; color: var(--light-blue); margin-top: 2px; }
+
+    /* SECTIONS */
+    section { padding: 72px 40px; }
+    .section-alt { background: var(--gray); }
+
+    .section-header { text-align: center; margin-bottom: 48px; }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; margin: 0 auto; }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid rgba(24,95,165,0.12);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(4,44,83,0.1); border-color: var(--light-blue); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--pale-blue);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .service-card p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* HOW IT WORKS */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; max-width: 900px; margin: 0 auto; position: relative; }
+
+    .step {
+      text-align: center;
+      padding: 32px 24px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--pale-blue);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step-icon {
+      width: 60px; height: 60px;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      margin: 0 auto 16px;
+      color: var(--white);
+    }
+    .step h3 { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .step p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+
+    .pricing-card {
+      background: var(--white);
+      border: 1px solid rgba(24,95,165,0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--blue);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .pricing-name { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .pricing-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-unit { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+    .pricing-features { list-style: none; }
+    .pricing-features li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--pale-blue);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pricing-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+    /* AREAS */
+    .areas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto; }
+
+    .area-card {
+      background: var(--white);
+      border: 1px solid rgba(24,95,165,0.12);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .area-name { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .area-cities { font-size: 12px; color: var(--muted); line-height: 2; }
+
+    /* WHY US */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+    .why-card { text-align: center; padding: 28px 20px; }
+    .why-icon { font-size: 32px; margin-bottom: 14px; }
+    .why-card h3 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+    .why-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* CONTACT */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 900px; margin: 0 auto; align-items: start; }
+
+    .contact-info h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px; font-weight: 700; color: var(--navy); margin-bottom: 16px;
+    }
+    .contact-info p { font-size: 15px; color: var(--muted); margin-bottom: 28px; line-height: 1.7; }
+    .contact-detail { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; }
+    .contact-detail-icon {
+      width: 36px; height: 36px;
+      background: var(--pale-blue);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-detail-text { font-size: 14px; color: var(--text); line-height: 1.5; }
+    .contact-detail-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .contact-form { background: var(--white); border: 1px solid rgba(24,95,165,0.12); border-radius: var(--radius-lg); padding: 32px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid rgba(24,95,165,0.2);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: 'Barlow', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus { border-color: var(--blue); }
+    .form-promo { font-size: 12px; color: var(--blue); font-weight: 600; text-align: center; margin-bottom: 12px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 56px 40px 28px;
+    }
+
+    .footer-top { display: flex; gap: 48px; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-brand { max-width: 280px; }
+    .footer-logo { height: 56px; width: auto; filter: brightness(0) invert(1); margin-bottom: 16px; display: block; }
+    .footer-brand p { font-size: 13px; opacity: 0.75; line-height: 1.8; margin-bottom: 16px; }
+    .footer-contact { font-size: 13px; opacity: 0.8; line-height: 2.1; }
+
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.5; margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; opacity: 0.8; margin-bottom: 8px; transition: opacity 0.2s; }
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.45;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 40px; font-weight: 700; color: var(--white); margin-bottom: 12px;
+    }
+    .cta-banner p { font-size: 16px; color: var(--light-blue); margin-bottom: 28px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 24px 56px; }
+      .hero h1 { font-size: 38px; }
+      section { padding: 56px 24px; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 48px 24px 24px; }
+      .footer-top { gap: 32px; }
+      .hero-stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="promo-bar">
+    20% off your first wash & fold — use code <strong>WASH20</strong> &nbsp;·&nbsp; Call us: 909-225-3224
+  </div>
+
+  <nav>
+    <div class="nav-logo"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" height="60" style="display:block">
+<circle cx="340" cy="180" r="158" fill="#042C53"/>
+<circle cx="340" cy="180" r="148" fill="none" stroke="#185FA5" stroke-width="2.5"/>
+<circle cx="340" cy="180" r="138" fill="none" stroke="#B5D4F4" stroke-width="1"/>
+<rect x="278" y="58" width="124" height="140" rx="10" fill="none" stroke="#B5D4F4" stroke-width="2"/>
+<rect x="278" y="58" width="124" height="22" rx="10" fill="#185FA5"/>
+<rect x="278" y="76" width="124" height="4" fill="#185FA5"/>
+<circle cx="296" cy="69" r="4" fill="#B5D4F4"/>
+<circle cx="310" cy="69" r="4" fill="#B5D4F4"/>
+<rect x="338" y="64" width="26" height="10" rx="3" fill="#B5D4F4" opacity="0.4"/>
+<circle cx="378" cy="69" r="4" fill="#0C447C"/>
+<circle cx="378" cy="69" r="2" fill="#B5D4F4"/>
+<circle cx="340" cy="148" r="44" fill="#185FA5"/>
+<circle cx="340" cy="148" r="36" fill="#042C53"/>
+<circle cx="340" cy="148" r="31" fill="none" stroke="#B5D4F4" stroke-width="1.5"/>
+<path d="M340,165 C340,165 318,152 318,138 C318,130 324,125 331,125 C335,125 338,127 340,130 C342,127 345,125 349,125 C356,125 362,130 362,138 C362,152 340,165 340,165Z" fill="white"/>
+<path d="M292,200 Q310,188 328,196 Q340,202 352,196 Q370,188 388,200" fill="none" stroke="#B5D4F4" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="294" cy="210" r="2.5" fill="#B5D4F4"/>
+<circle cx="305" cy="213" r="2" fill="#185FA5"/>
+<circle cx="316" cy="210" r="2" fill="#B5D4F4"/>
+<line x1="278" y1="224" x2="402" y2="224" stroke="#185FA5" stroke-width="1"/>
+<text x="340" y="252" font-family="Arial Black,Impact,sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle" letter-spacing="4">PREMIER</text>
+<line x1="278" y1="262" x2="318" y2="262" stroke="#B5D4F4" stroke-width="1"/>
+<text x="340" y="274" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#B5D4F4" text-anchor="middle" letter-spacing="3">LAUNDRY SOLUTIONS</text>
+<line x1="362" y1="262" x2="402" y2="262" stroke="#B5D4F4" stroke-width="1"/>
+<circle cx="316" cy="300" r="3" fill="#185FA5"/>
+<circle cx="340" cy="300" r="3" fill="#B5D4F4"/>
+<circle cx="364" cy="300" r="3" fill="#185FA5"/>
+</svg></a></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#contact" class="btn btn-primary">Schedule Pickup</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" height="180" style="display:block;margin:0 auto 28px">
+<circle cx="340" cy="180" r="158" fill="rgba(255,255,255,0.08)"/>
+<circle cx="340" cy="180" r="148" fill="none" stroke="rgba(181,212,244,0.5)" stroke-width="2.5"/>
+<circle cx="340" cy="180" r="138" fill="none" stroke="rgba(181,212,244,0.25)" stroke-width="1"/>
+<rect x="278" y="58" width="124" height="140" rx="10" fill="none" stroke="rgba(181,212,244,0.6)" stroke-width="2"/>
+<rect x="278" y="58" width="124" height="22" rx="10" fill="rgba(181,212,244,0.3)"/>
+<rect x="278" y="76" width="124" height="4" fill="rgba(181,212,244,0.3)"/>
+<circle cx="296" cy="69" r="4" fill="rgba(255,255,255,0.7)"/>
+<circle cx="310" cy="69" r="4" fill="rgba(255,255,255,0.7)"/>
+<rect x="338" y="64" width="26" height="10" rx="3" fill="rgba(255,255,255,0.2)"/>
+<circle cx="378" cy="69" r="4" fill="rgba(255,255,255,0.4)"/>
+<circle cx="378" cy="69" r="2" fill="white"/>
+<circle cx="340" cy="148" r="44" fill="rgba(181,212,244,0.3)"/>
+<circle cx="340" cy="148" r="36" fill="rgba(4,44,83,0.5)"/>
+<circle cx="340" cy="148" r="31" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+<path d="M340,165 C340,165 318,152 318,138 C318,130 324,125 331,125 C335,125 338,127 340,130 C342,127 345,125 349,125 C356,125 362,130 362,138 C362,152 340,165 340,165Z" fill="white"/>
+<path d="M292,200 Q310,188 328,196 Q340,202 352,196 Q370,188 388,200" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+<circle cx="294" cy="210" r="2.5" fill="rgba(255,255,255,0.6)"/>
+<circle cx="305" cy="213" r="2" fill="rgba(255,255,255,0.4)"/>
+<circle cx="316" cy="210" r="2" fill="rgba(255,255,255,0.6)"/>
+<line x1="278" y1="224" x2="402" y2="224" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+<text x="340" y="252" font-family="Arial Black,Impact,sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle" letter-spacing="4">PREMIER</text>
+<line x1="278" y1="262" x2="318" y2="262" stroke="rgba(181,212,244,0.6)" stroke-width="1"/>
+<text x="340" y="274" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#B5D4F4" text-anchor="middle" letter-spacing="3">LAUNDRY SOLUTIONS</text>
+<line x1="362" y1="262" x2="402" y2="262" stroke="rgba(181,212,244,0.6)" stroke-width="1"/>
+<circle cx="316" cy="300" r="3" fill="rgba(181,212,244,0.6)"/>
+<circle cx="340" cy="300" r="3" fill="rgba(255,255,255,0.6)"/>
+<circle cx="364" cy="300" r="3" fill="rgba(181,212,244,0.6)"/>
+</svg>
+      
+      <h1>We turn your laundry around fast.</h1>
+      <p>Crisp, clean, and back in your hands in as little as 24 hours. On-demand pickup, expert wash & fold, and delivery right to your door.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-white btn-lg">Schedule a Pickup</a>
+        <a href="#services" class="btn btn-outline btn-lg" style="color:#B5D4F4;border-color:rgba(181,212,244,0.5)">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">4.9★</div><div class="hero-stat-label">Customer rating</div></div>
+        <div><div class="hero-stat-num">2,400+</div><div class="hero-stat-label">Happy customers</div></div>
+        <div><div class="hero-stat-num">1M+</div><div class="hero-stat-label">Pounds processed</div></div>
+        <div><div class="hero-stat-num">10+</div><div class="hero-stat-label">Years of service</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Services</div>
+      <div class="section-title">Simple services designed around the way you live</div>
+      <div class="section-sub">From everyday loads to commercial volumes, we handle it all with the care of a small business and the technology of a big one.</div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🧺</div>
+        <h3>Pick-up & Delivery</h3>
+        <p>Schedule a pickup and our team will wash, dry, and neatly fold everything, then return it fresh, soft, and right on time — all from your phone.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👔</div>
+        <h3>Dry Cleaning</h3>
+        <p>Expert care for your finest garments. Suits, dresses, and delicates cleaned, pressed, and returned looking their absolute best.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Laundry</h3>
+        <p>Local businesses rely on us for consistent care of linens, towels, and uniforms — for rentals, gyms, salons, and more.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section-alt">
+    <div class="section-header">
+      <div class="section-eyebrow">How It Works</div>
+      <div class="section-title">Laundry day, handled in four easy steps</div>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-icon">📅</div>
+        <h3>Schedule</h3>
+        <p>Pick a pickup window that works for you in just a few taps online or by phone.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-icon">🚗</div>
+        <h3>We Pick Up</h3>
+        <p>Leave your laundry at the door. Our friendly driver grabs it on schedule — no waiting around.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-icon">✨</div>
+        <h3>We Clean</h3>
+        <p>Your clothes are washed, dried, and folded with premium, eco-friendly detergents and care.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-icon">📦</div>
+        <h3>We Deliver</h3>
+        <p>Fresh, folded laundry returned to your door in as little as 24 hours. That easy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-header">
+      <div class="section-eyebrow">Pricing</div>
+      <div class="section-title">Simple, transparent pricing</div>
+      <div class="section-sub">No contracts. Billed per order. Whether you need a one-time wash or weekly service.</div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Pick-up & Delivery</div>
+        <div class="pricing-price">$2.25</div>
+        <div class="pricing-unit">per pound · 30 lb minimum</div>
+        <ul class="pricing-features">
+          <li>Free pickup & delivery</li>
+          <li>48-hour turnaround included</li>
+          <li>$2.50/lb for 24-hour turnaround</li>
+          <li>Eco-friendly detergents</li>
+          <li>Folded & ready to put away</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">Most Popular</div>
+        <div class="pricing-name">Recurring Route</div>
+        <div class="pricing-price">$50</div>
+        <div class="pricing-unit">per bag · approx. 25 lbs</div>
+        <ul class="pricing-features">
+          <li>Weekly or regular schedule</li>
+          <li>10% off for recurring customers</li>
+          <li>Free pickup & delivery</li>
+          <li>Laundry bags provided</li>
+          <li>No contracts</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">As-Needed Pickup</div>
+        <div class="pricing-price">$60</div>
+        <div class="pricing-unit">per bag · approx. 25 lbs</div>
+        <ul class="pricing-features">
+          <li>On-demand scheduling</li>
+          <li>Billed per order</li>
+          <li>No contracts</li>
+          <li>Free pickup & delivery</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Commercial</div>
+        <div class="pricing-price" style="font-size:30px">Custom</div>
+        <div class="pricing-unit">tailored to your business</div>
+        <ul class="pricing-features">
+          <li>Linens, towels & uniforms</li>
+          <li>Flexible scheduling</li>
+          <li>Volume discounts</li>
+          <li>Net billing available</li>
+          <li>Ozone treatment available</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COLLEGE PLANS -->
+    <div style="margin-top:56px">
+      <div class="section-header">
+        <div class="section-eyebrow">College Student Plans</div>
+        <div class="section-title">Semester plans for students</div>
+        <div class="section-sub">Too much studying, too little time for laundry? All plans can be customized or prorated.</div>
+      </div>
+      <div class="pricing-grid" style="max-width:800px">
+        <div class="pricing-card">
+          <div class="pricing-name">Stay Clean</div>
+          <div class="pricing-price">$499</div>
+          <div class="pricing-unit">per semester</div>
+          <ul class="pricing-features">
+            <li>15 pounds per week</li>
+            <li>$2.50 per additional pound</li>
+            <li>Free pickup & delivery</li>
+            <li>Customizable & prorated</li>
+          </ul>
+        </div>
+        <div class="pricing-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <div class="pricing-name">Look Dapper</div>
+          <div class="pricing-price">$599</div>
+          <div class="pricing-unit">per semester</div>
+          <ul class="pricing-features">
+            <li>20 pounds per week</li>
+            <li>$2.25 per additional pound</li>
+            <li>Free pickup & delivery</li>
+            <li>Customizable & prorated</li>
+          </ul>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">Premier</div>
+          <div class="pricing-price">$699</div>
+          <div class="pricing-unit">per semester</div>
+          <ul class="pricing-features">
+            <li>25 pounds per week</li>
+            <li>$1.95 per additional pound</li>
+            <li>Free pickup & delivery</li>
+            <li>Customizable & prorated</li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:16px">Prefer to pay as you go? Laundry is $2.75 per pound (15 lb minimum).</p>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section id="areas" class="section-alt">
+    <div class="section-header">
+      <div class="section-eyebrow">Service Areas</div>
+      <div class="section-title">Pickup & delivery across the Inland Empire and beyond</div>
+      <div class="section-sub">We are the #1 laundry service in the Inland Empire, serving San Bernardino County, Riverside County, the San Gabriel Valley, and Orange County.</div>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card">
+        <div class="area-name">San Bernardino County</div>
+        <div class="area-cities">Rancho Cucamonga<br>Upland<br>Ontario<br>Montclair<br>Chino<br>Chino Hills<br>Alta Loma</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name">Riverside County</div>
+        <div class="area-cities">Riverside<br>Corona<br>Eastvale<br>Jurupa Valley<br>Norco</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name">San Gabriel Valley</div>
+        <div class="area-cities">Claremont<br>La Verne<br>Pomona<br>San Dimas<br>Glendora</div>
+      </div>
+      <div class="area-card">
+        <div class="area-name">Orange County</div>
+        <div class="area-cities">Anaheim<br>Fullerton<br>Brea<br>Yorba Linda<br>Placentia</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:24px;max-width:600px;margin-left:auto;margin-right:auto">A delivery fee may apply to areas outside our core service areas. Contact us to confirm coverage for your address.</p>
+  </section>
+
+  <!-- WHY PREMIER -->
+  <section>
+    <div class="section-header">
+      <div class="section-eyebrow">Why Premier</div>
+      <div class="section-title">Laundry care of a small business, technology of a big one</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Fast turnaround</h3>
+        <p>Most orders are cleaned, folded, and returned within 24 hours.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌿</div>
+        <h3>Eco-friendly</h3>
+        <p>Energy-efficient machines and gentle, planet-kind detergents.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <h3>Care guarantee</h3>
+        <p>Not happy? We'll re-clean your order free, no questions asked.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Local & trusted</h3>
+        <p>A neighborhood team that treats your clothes like our own.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section-alt">
+    <div class="section-header">
+      <div class="section-eyebrow">FAQ</div>
+      <div class="section-title">Frequently asked questions</div>
+    </div>
+    <div style="max-width:680px;margin:0 auto">
+      <details style="border:1px solid rgba(24,95,165,0.12);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;background:var(--white)">
+        <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--navy)">What are your hours of operation?</summary>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted)">We're open every day from 8:00 AM to 7:00 PM, 365 days a year, so you can drop off, pick up, or schedule service whenever it works best for you.</p>
+      </details>
+      <details style="border:1px solid rgba(24,95,165,0.12);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;background:var(--white)">
+        <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--navy)">Do you provide pickup and delivery?</summary>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted)">Yes! We offer free pickup and delivery for all of our standard services. Simply schedule online or by phone and we'll handle the rest.</p>
+      </details>
+      <details style="border:1px solid rgba(24,95,165,0.12);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;background:var(--white)">
+        <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--navy)">How does wash & fold pricing work?</summary>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted)">We charge $2.25 per pound with a 30 lb minimum for standard pickup & delivery. For 24-hour turnaround, the rate is $2.50 per pound. No hidden fees.</p>
+      </details>
+      <details style="border:1px solid rgba(24,95,165,0.12);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;background:var(--white)">
+        <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--navy)">What detergents do you use?</summary>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted)">We use premium, eco-friendly detergents that are gentle on your clothes and the planet. We can accommodate sensitivities — just let us know your preferences when scheduling.</p>
+      </details>
+      <details style="border:1px solid rgba(24,95,165,0.12);border-radius:var(--radius);padding:18px 22px;margin-bottom:10px;background:var(--white)">
+        <summary style="font-weight:600;font-size:15px;cursor:pointer;color:var(--navy)">Do you handle commercial accounts?</summary>
+        <p style="margin-top:12px;font-size:14px;color:var(--muted)">Absolutely. We work with businesses of all sizes including hospitality, medical, restaurants, gyms, salons, AirBnBs, and more. Contact us for a custom consultation and pricing.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT / SCHEDULE -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="section-eyebrow">Schedule a Pickup</div>
+        <h2>Ready for laundry day to disappear?</h2>
+        <p>Get 20% off your first wash & fold with code <strong style="color:var(--blue)">WASH20</strong>. Fresh, folded laundry back to your door in 24 hours. No commitment required.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-text"><a href="tel:9092253224">909-225-3224</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-text"><a href="mailto:fabian@premierlaundrysolution.com">fabian@premierlaundrysolution.com</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🕗</div>
+          <div>
+            <div class="contact-detail-label">Hours</div>
+            <div class="contact-detail-text">Open daily, 8:00 AM – 7:00 PM</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">🌐</div>
+          <div>
+            <div class="contact-detail-label">Website</div>
+            <div class="contact-detail-text">www.premierlaundrysolution.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <form id="pickupForm" action="https://formspree.io/f/fabian@premierlaundrysolution.com" method="POST">
+          <input type="hidden" name="_subject" value="New Pickup Request - Premier Laundry Solutions">
+          <input type="hidden" name="_replyto" value="fabian@premierlaundrysolution.com">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First name</label>
+              <input type="text" name="first_name" placeholder="Alex" required>
+            </div>
+            <div class="form-group">
+              <label>Last name</label>
+              <input type="text" name="last_name" placeholder="Rivera" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(909) 555-1234" required>
+          </div>
+          <div class="form-group">
+            <label>Pickup address</label>
+            <input type="text" name="address" placeholder="123 Main St, Rancho Cucamonga, CA" required>
+          </div>
+          <div class="form-group">
+            <label>Service</label>
+            <select name="service">
+              <option>Pick-up & Delivery</option>
+              <option>Recurring Route Service</option>
+              <option>As-Needed Pickup</option>
+              <option>Commercial Laundry</option>
+              <option>College Plan</option>
+              <option>Dry Cleaning</option>
+            </select>
+          </div>
+          <div class="form-promo">🎉 Use code WASH20 for 20% off your first order</div>
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;font-size:15px">Schedule My Pickup</button>
+          <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:10px">No commitment. We'll confirm your window by text.</p>
+        </form>
+        <div id="formSuccess" style="display:none;text-align:center;padding:32px 16px">
+          <div style="font-size:48px;margin-bottom:16px">✅</div>
+          <div style="font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px">Request Received!</div>
+          <div style="font-size:14px;color:var(--muted)">Thanks! We'll confirm your pickup window by text shortly.</div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('pickupForm').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const data = new FormData(form);
+          try {
+            const res = await fetch(form.action, {
+              method: 'POST',
+              body: data,
+              headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+              form.style.display = 'none';
+              document.getElementById('formSuccess').style.display = 'block';
+            } else {
+              alert('There was an issue submitting the form. Please call us at 909-225-3224.');
+            }
+          } catch {
+            alert('There was an issue submitting the form. Please call us at 909-225-3224.');
+          }
+        });
+      </script>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Over 1,000,000 pounds cleaned and counting.</h2>
+    <p>Join 2,400+ happy customers across the Inland Empire. Your first pickup is just a click away.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn btn-white btn-lg">Schedule a Pickup</a>
+      <a href="tel:9092253224" class="btn btn-lg" style="background:transparent;color:var(--light-blue);border:1.5px solid rgba(181,212,244,0.4)">Call 909-225-3224</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" height="80" style="display:block;margin-bottom:16px">
+<circle cx="340" cy="180" r="158" fill="rgba(255,255,255,0.08)"/>
+<circle cx="340" cy="180" r="148" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+<circle cx="340" cy="180" r="138" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+<rect x="278" y="58" width="124" height="140" rx="10" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+<rect x="278" y="58" width="124" height="22" rx="10" fill="rgba(255,255,255,0.2)"/>
+<rect x="278" y="76" width="124" height="4" fill="rgba(255,255,255,0.2)"/>
+<circle cx="296" cy="69" r="4" fill="rgba(255,255,255,0.6)"/>
+<circle cx="310" cy="69" r="4" fill="rgba(255,255,255,0.6)"/>
+<rect x="338" y="64" width="26" height="10" rx="3" fill="rgba(255,255,255,0.15)"/>
+<circle cx="378" cy="69" r="4" fill="rgba(255,255,255,0.3)"/>
+<circle cx="378" cy="69" r="2" fill="white"/>
+<circle cx="340" cy="148" r="44" fill="rgba(255,255,255,0.15)"/>
+<circle cx="340" cy="148" r="36" fill="rgba(255,255,255,0.05)"/>
+<circle cx="340" cy="148" r="31" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+<path d="M340,165 C340,165 318,152 318,138 C318,130 324,125 331,125 C335,125 338,127 340,130 C342,127 345,125 349,125 C356,125 362,130 362,138 C362,152 340,165 340,165Z" fill="white"/>
+<path d="M292,200 Q310,188 328,196 Q340,202 352,196 Q370,188 388,200" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="278" y1="224" x2="402" y2="224" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+<text x="340" y="252" font-family="Arial Black,Impact,sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle" letter-spacing="4">PREMIER</text>
+<line x1="278" y1="262" x2="318" y2="262" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+<text x="340" y="274" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="3">LAUNDRY SOLUTIONS</text>
+<line x1="362" y1="262" x2="402" y2="262" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+</svg>
+        <p>The stress-free way to do laundry. Wash & fold, pickup & delivery, dry cleaning, and commercial laundry — done right.</p>
+        <div class="footer-contact">
+          📞 909-225-3224<br>
+          ✉️ fabian@premierlaundrysolution.com<br>
+          🕗 Open daily, 8:00 AM – 7:00 PM
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Pick-up & Delivery</a>
+        <a href="#services">Dry Cleaning</a>
+        <a href="#services">Commercial Laundry</a>
+        <a href="#pricing">College Plans</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About Us</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#">Careers</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Schedule Pickup</a>
+        <a href="#">Track Order</a>
+        <a href="#">Terms & Privacy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Premier Laundry Solution. All rights reserved. · www.premierlaundrysolution.com
+    </div>
+  </footer>
+
+</body>
+</html>
